@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Writerly
+
+A modern, minimal blog platform where ideas find their voice. Built as a portfolio project to demonstrate full-stack development with the latest Next.js ecosystem.
+
+🔗 **Live Demo**: [writerly-app.vercel.app](https://writerly-app.vercel.app)
+
+![dashboard blog](image.png)
+![writerly priview](image-1.png)
+
+---
+
+## Tech Stack
+
+| Category | Technology |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS + shadcn/ui |
+| Database | PostgreSQL (Neon) |
+| ORM | Drizzle ORM |
+| Auth | Better Auth |
+| Validation | Zod + React Hook Form |
+| Deployment | Vercel |
+
+---
+
+## Features
+
+- **Authentication** — register, login, and logout with email & password
+- **Blog Posts** — create, read, update, and delete posts
+- **Comments** — leave comments on any post
+- **Protected Routes** — only authenticated users can write posts
+- **Author-only Actions** — edit and delete only available to post author
+- **Responsive UI** — clean, minimal design that works on all devices
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- PostgreSQL database (Neon recommended)
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/writerly-app.git
+cd writerly-app
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Set up environment variables
+
+```bash
+cp .env.example .env
+```
+
+Fill in your `.env`:
+
+```env
+BETTER_AUTH_SECRET=your_secret_here
+BETTER_AUTH_URL=http://localhost:3000
+DATABASE_URL=your_neon_connection_string
+```
+
+4. Push database schema
+
+```bash
+npm run db:push
+```
+
+5. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+app/
+├── (auth)/         → login & register pages
+├── (main)/         → main app with navbar
+│   ├── page.tsx    → landing page
+│   └── blog/       → blog pages (list, detail, create, edit)
+├── api/            → API routes
+└── layout.tsx      → root layout
 
-To learn more about Next.js, take a look at the following resources:
+components/
+├── shared/         → Navbar, CommentForm, AuthCard
+└── ui/             → shadcn components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+actions/            → Server Actions (post, comment)
+lib/                → auth, db, auth-client
+hooks/              → useAuth
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## What I Learned
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next.js 15 App Router — layouts, Server Components, Server Actions
+- Full-stack TypeScript with end-to-end type safety via Drizzle ORM
+- Authentication flow with Better Auth and session management
+- Form validation with Zod and React Hook Form
+- Deploying a full-stack Next.js app to Vercel with Neon PostgreSQL
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## License
+
+MIT

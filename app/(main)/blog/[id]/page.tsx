@@ -1,7 +1,6 @@
 import { getComments } from "@/actions/comment";
 import { deletePost, getPostById } from "@/actions/post";
 import CommentForm from "@/components/shared/comment-form";
-import { post } from "@/db/schema";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import Link from "next/link";
